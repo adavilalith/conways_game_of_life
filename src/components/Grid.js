@@ -1,4 +1,5 @@
 import React,{useCallback, useState, useRef} from 'react'
+import './Grid.css'
 
 export default function Grid(props) {
     const colno=Number(props.cols);
@@ -63,10 +64,11 @@ export default function Grid(props) {
         });
         setTimeout(runGame,200);
     },[colno,rowno]);
+    },[colno,rowno]);
 
     return (
     <>
-        <div className='my-2' style={{float:'left'}}>
+        <div className='gamegrid' style={{float:'left'}}>
             <div style={{
             display:'grid',
             gridTemplateColumns: `repeat(${colno},20px)`
