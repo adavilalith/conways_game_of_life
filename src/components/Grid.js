@@ -1,4 +1,5 @@
 import React,{useCallback, useState, useRef} from 'react'
+import './Grid.css'
 
 export default function Grid(props) {
     const colno=Number(props.cols);
@@ -61,11 +62,11 @@ export default function Grid(props) {
             return new_grid;
         });
         setTimeout(runGame,200);
-    },[]);
+    },[colno,rowno]);
 
     return (
     <>
-        <div className='my-2' style={{float:'left'}}>
+        <div className='gamegrid' style={{float:'left'}}>
             <div style={{
             display:'grid',
             gridTemplateColumns: `repeat(${colno},20px)`
@@ -91,9 +92,10 @@ export default function Grid(props) {
                 )}
             </div>
       </div>
-      <div className='container my-3'>
-        <button className="btn btn-primary mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
-        <button className="btn btn-primary mx-5 my-3" onClick={()=>setGrid(()=>{
+      <div className='controls'>
+        <button className="startbtn" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
+        <button className="resetbtn" onClick={()=>setGrid(()=>{
+                                                                setRunning(false);
                                                                 const rows=[]
                                                                 for(let i=0;i<rowno;i++){
                                                                     rows.push(Array.from(Array(colno),()=>0));
