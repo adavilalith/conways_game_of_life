@@ -1,16 +1,37 @@
-import React from 'react'
-import './Navbar.css'
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./Navbar.css";
 
-export default function Navbar(props) {
-  return (
-    <div className='navdiv'>
-      <h1 className='logo'>Conway's Game of Life</h1>
-      <nav class="nav__links">
-        <li ><a href={props.link1} target="_blank" rel="noreferrer">{props.section1}</a></li>
-        <li ><a href={props.link2} target="_blank" rel="noreferrer">{props.section2}</a></li>
-        <li ><a href={props.link3} target="_blank" rel="noreferrer">{props.section3}</a></li>
-      </nav>
-      <a href={props.contactLink} target="_blank" rel="noreferrer"><button id='contactbtn'>Let's Connect!</button></a>
-    </div>
-  )
+function Navbar() {
+	const navRef = useRef();
+
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
+
+	return (
+		<header>
+			<h3>LOGO</h3>
+			<nav ref={navRef}>
+				<a href="/#">Home</a>
+				<a href="/#">My work</a>
+				<a href="/#">Blog</a>
+				<a href="/#">About me</a>
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
+			</nav>
+			<button
+				className="nav-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
+		</header>
+	);
 }
+
+export default Navbar;
