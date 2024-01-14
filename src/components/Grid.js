@@ -65,6 +65,16 @@ export default function Grid(props) {
         setTimeout(runGame,200);
     },[colno,rowno]);
 
+    const generateRandomGrid= ()=>{
+        let new_grid=JSON.parse(JSON.stringify(grid));
+        for(let i=0;i<800;i++){
+            const x = Math.floor(Math.random() * (colno-1 - 0) + 0);
+            const y = Math.floor(Math.random() * (colno-1 - 0) + 0);
+            new_grid[x][y]=1;
+        }
+        setGrid(new_grid);
+    }
+
     return (
     <>
         <div className='gamegrid' style={{float:'left'}}>
@@ -104,6 +114,7 @@ export default function Grid(props) {
                                                                 return rows;
                                                             })}
             >Reset</button>
+        <button className="btn btn-primary my-3 mx-5" onClick={generateRandomGrid}>generate</button>
       </div>
     </> 
     
