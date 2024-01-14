@@ -3,7 +3,8 @@ import React,{useCallback, useState, useRef} from 'react'
 export default function Grid(props) {
     const colno=Number(props.cols);
     const rowno=Number(props.rows);
-    
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
     const [grid,setGrid] = useState(()=>{
         const rows=[]
         for(let i=0;i<rowno;i++){
@@ -61,7 +62,7 @@ export default function Grid(props) {
             return new_grid;
         });
         setTimeout(runGame,200);
-    },[]);
+    },[colno,rowno]);
 
     return (
     <>
@@ -94,6 +95,7 @@ export default function Grid(props) {
       <div className='container my-3'>
         <button className="btn btn-primary mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
         <button className="btn btn-primary mx-5 my-3" onClick={()=>setGrid(()=>{
+                                                                setRunning(false);
                                                                 const rows=[]
                                                                 for(let i=0;i<rowno;i++){
                                                                     rows.push(Array.from(Array(colno),()=>0));
