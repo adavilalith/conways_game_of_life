@@ -64,7 +64,6 @@ export default function Grid(props) {
         });
         setTimeout(runGame,200);
     },[colno,rowno]);
-    },[colno,rowno]);
 
     return (
     <>
