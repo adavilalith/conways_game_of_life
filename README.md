@@ -12,11 +12,10 @@ A simple implementation of Conway's Game of Life using React.
 - [Usage](#usage)
 - [Features](#features)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## About the Project
 
-Conway's Game of Life is a cellular automaton devised by mathematician John Conway. This project is a React-based implementation of the game, where the evolution of cells is determined by simple rules. The game is played on a two-dimensional grid, and the cells can be in one of two states: alive or dead. The game evolves over generations based on the initial state of the cells.
+Conway's Game of Life is a cellular automaton devised by mathematician John Conway. This project is a React-based implementation of the game, where the evolution of cells is determined by simple rules. The game is played on a two-dimensional grid, and the cells can be in one of two states: alive or dead. The game evolves over generations based on the initial state of the cells. [Learn more here](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 
 ## How to Play
 
@@ -55,3 +54,18 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Conw
   ```sh
   yarn run
   ```
+2. Open your browser and visit http://localhost:3000 to view the application.
+
+## Features
+- Interactive grid for toggling cell states.
+- Start, stop, and manually progress through generations.
+- Clear the grid to start with a clean slate.
+
+## Contributing
+If you'd like to contribute to the project, please follow these steps:
+
+1. Fork the project.
+2. Create your feature branch (git checkout -b feature/YourFeature).
+3. Commit your changes (git commit -m 'Add some feature').
+4. Push to the branch (git push origin feature/YourFeature).
+5. Open a pull request.
