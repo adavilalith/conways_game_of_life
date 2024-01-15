@@ -7,14 +7,15 @@ export default function Grid(props) {
     const screenWidth=window.innerWidth;
     let colno,rowno;
     let grid_size='1vw'
-    if(screenWidth<500){
+    if(screenWidth<600){
         colno=50;
-        rowno=70;
+        rowno=Math.floor((window.innerHeight/(window.innerWidth/colno))*60/100)
+        rowno=60
         grid_size='2vw'
     }
     else{
-        colno=99
-        rowno=35
+        colno=100
+        rowno=Math.floor((window.innerHeight/(window.innerWidth/colno))*80/100)
         grid_size='1vw'
     }
     
