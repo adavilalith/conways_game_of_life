@@ -35,25 +35,25 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Conw
    ```
 2. Changing the repository:
    
-  ```sh
-  cd conways_game_of_life
-  ```
+   ```sh
+    cd conways_game_of_life
+   ```
 3. Installing dependencies:
    
-  ```sh
-  npm install
-  ```
+   ```sh
+   npm install
+   ```
 
 ## Usage
 1. start react app by using:
    
-  ```sh
-  npm start
-  ```
+   ```sh
+   npm start
+   ```
   
-  ```sh
-  yarn run
-  ```
+   ```sh
+   yarn run
+   ```
 2. Open your browser and visit http://localhost:3000 to view the application.
 
 ## Features
