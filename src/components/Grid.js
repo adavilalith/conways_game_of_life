@@ -2,8 +2,22 @@ import React,{useCallback, useState, useRef} from 'react'
 import './Grid.css'
 
 export default function Grid(props) {
-    const colno=Number(props.cols);
-    const rowno=Number(props.rows);
+
+    console.log(window.innerWidth)
+    const screenWidth=window.innerWidth;
+    let colno,rowno;
+    let grid_size='1vw'
+    if(screenWidth<500){
+        colno=50;
+        rowno=70;
+        grid_size='2vw'
+    }
+    else{
+        colno=99
+        rowno=35
+        grid_size='1vw'
+    }
+    
     console.log(window.innerWidth)
     console.log(window.innerHeight)
     const [grid,setGrid] = useState(()=>{
@@ -26,7 +40,6 @@ export default function Grid(props) {
         }
         
         setGrid( g => {
-                console.log(1)
                 const lifecond=(x,y)=>{
                 const life=g[x][y]
                 let alive=0-g[x][y];
@@ -68,7 +81,7 @@ export default function Grid(props) {
     const generateRandomGrid= ()=>{
         let new_grid=JSON.parse(JSON.stringify(grid));
         for(let i=0;i<800;i++){
-            const x = Math.floor(Math.random() * (colno-1 - 0) + 0);
+            const x = Math.floor(Math.random() * (rowno-1 - 0) + 0);
             const y = Math.floor(Math.random() * (colno-1 - 0) + 0);
             new_grid[x][y]=1;
         }
@@ -77,44 +90,44 @@ export default function Grid(props) {
 
     return (
     <>
-        <div className='gamegrid' style={{float:'left'}}>
+        <div className='gamegrid' >
             <div style={{
-            display:'grid',
-            gridTemplateColumns: `repeat(${colno},20px)`
-            }}>
-            {grid.map((rows,i)=>
-                rows.map((col,j) => (
-                <div 
-                key={`${i}-${j}`}    
-                style={
-                    {
-                    width:20,
-                    height:20,
-                    backgroundColor: grid[i][j]?'yellow':'grey',
-                    border:'solid 1px black'}}
-                onClick={()=>{
-                    let mut_grid=JSON.parse(JSON.stringify(grid));
-                    mut_grid[i][j]=mut_grid[i][j]?0:1;
-                    setGrid(mut_grid);
-                }}                    
-                >
-                </div> 
-                ))
-                )}
+                display:'grid',
+                gridTemplateColumns: `repeat(${colno},${grid_size})`
+                }}>
+                {grid.map((rows,i)=>
+                    rows.map((col,j) => (
+                    <div 
+                    key={`${i}-${j}`}    
+                    style={
+                        {
+                        width:grid_size,
+                        height:grid_size,
+                        backgroundColor: grid[i][j]?'yellow':'grey',
+                        border:'solid 0.1vw black'}}
+                    onClick={()=>{
+                        let mut_grid=JSON.parse(JSON.stringify(grid));
+                        mut_grid[i][j]=mut_grid[i][j]?0:1;
+                        setGrid(mut_grid);
+                    }}                    
+                    >
+                    </div> 
+                    ))
+                    )}
             </div>
-      </div>
-      <div className='container my-3'>
-        <button className="btn btn-primary mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
-        <button className="btn btn-primary mx-5 my-3" onClick={()=>setGrid(()=>{
-                                                                setRunning(false);
-                                                                const rows=[]
-                                                                for(let i=0;i<rowno;i++){
-                                                                    rows.push(Array.from(Array(colno),()=>0));
-                                                                }
-                                                                return rows;
-                                                            })}
-            >Reset</button>
-        <button className="btn btn-primary my-3 mx-5" onClick={generateRandomGrid}>generate</button>
+        </div>
+        <div className='controlbtns'>
+            <button className="btn btn-primary mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
+            <button className="btn btn-primary mx-5 my-3" onClick={()=>setGrid(()=>{
+                                                                    setRunning(false);
+                                                                    const rows=[]
+                                                                    for(let i=0;i<rowno;i++){
+                                                                        rows.push(Array.from(Array(colno),()=>0));
+                                                                    }
+                                                                    return rows;
+                                                                })}
+                >Reset</button>
+            <button className="btn btn-primary my-3 mx-5" onClick={generateRandomGrid}>generate</button>
       </div>
     </> 
     

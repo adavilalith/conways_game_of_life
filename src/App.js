@@ -14,9 +14,9 @@ function App() {
         contactLink="https://www.linkedin.com/in/lalith-adavi-284378274/  "
       ></Navbar>
       </div>
-    <main>
-      <Grid rows="70" cols="70" style={{float:'right'}}></Grid>
-    </main>
+    
+      <Grid rows="44" cols="70" ></Grid>
+    
     </>
   );
 }
