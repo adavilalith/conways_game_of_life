@@ -1,5 +1,5 @@
 import React,{useCallback, useState, useRef} from 'react'
-import './Grid.css'
+import { Container,Row,Col } from 'react-bootstrap';
 
 export default function Grid(props) {
 
@@ -98,7 +98,7 @@ export default function Grid(props) {
                 }}>
                 {grid.map((rows,i)=>
                     rows.map((col,j) => (
-                    <div 
+                    <div
                     key={`${i}-${j}`}    
                     style={
                         {
@@ -107,6 +107,7 @@ export default function Grid(props) {
                         backgroundColor: grid[i][j]?'yellow':'grey',
                         border:'solid 0.1vw black'}}
                     onClick={()=>{
+                        setRunning(false)
                         let mut_grid=JSON.parse(JSON.stringify(grid));
                         mut_grid[i][j]=mut_grid[i][j]?0:1;
                         setGrid(mut_grid);
@@ -117,9 +118,13 @@ export default function Grid(props) {
                     )}
             </div>
         </div>
-        <div className='controlbtns'>
-            <button className="btn btn-primary mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
-            <button className="btn btn-primary mx-5 my-3" onClick={()=>setGrid(()=>{
+        <Container>
+            <Row>
+                <Col>
+                    <button className="btn btn-dark mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
+                </Col>
+                <Col>
+                <button className="btn btn-dark mx-5 my-3" onClick={()=>setGrid(()=>{
                                                                     setRunning(false);
                                                                     const rows=[]
                                                                     for(let i=0;i<rowno;i++){
@@ -128,8 +133,12 @@ export default function Grid(props) {
                                                                     return rows;
                                                                 })}
                 >Reset</button>
-            <button className="btn btn-primary my-3 mx-5" onClick={generateRandomGrid}>generate</button>
-      </div>
+                </Col>
+                <Col>
+                    <button className="btn btn-dark my-3 mx-5" onClick={generateRandomGrid}>generate</button>
+                </Col>
+            </Row>
+        </Container>            
     </> 
     
     )
