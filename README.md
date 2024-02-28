@@ -2,6 +2,8 @@
 
 A simple implementation of Conway's Game of Life using React.
 
+[Play the my implentation of the game here](https://conways-game-of-life-five-gamma.vercel.app/)
+
 ![Game of Life Demo](demo.gif)
 
 ## Table of Contents
