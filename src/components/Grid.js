@@ -199,12 +199,6 @@ export default function Grid(props) {
                 <Col xs={12} sm={12} lg={6} xl={6} className='d-flex justify-content-center'>
                         <LexiconModal lexiconState={[lexiconChoice,setLexiconChoice]}></LexiconModal>
                 </Col>
-                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
-                <button className="btn btn-dark mx-5 my-3" onClick={resetGrid}
-                >
-                    <p className='h4'>Reset</p>
-                </button>
-                </Col>
                 
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center flex-column align-items-center'>
                     <h4>Speed:</h4>
@@ -215,6 +209,12 @@ export default function Grid(props) {
                     <button className={`btn btn-${(running)?'danger':'dark'} mx-5 my-3`} onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>
                         <p className='h1'>{(running)?'STOP':'START'}</p>
                     </button>
+                </Col>
+
+                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
+                <button className="btn btn-dark mx-5 my-3" onClick={resetGrid}>
+                    <p className='h4'>Reset</p>
+                </button>
                 </Col>
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
                     <button className="btn btn-dark my-3 mx-5" onClick={nextIteration}><p className='h4'>Next Iteration</p></button>
