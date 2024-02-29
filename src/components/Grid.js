@@ -1,11 +1,12 @@
 import React,{useCallback, useState, useRef, useEffect} from 'react'
 import { Container,Row,Col, Button } from 'react-bootstrap';
 import LexiconModal from './LexiconModal';
+import FunStuffModal from './FunModal.js';
 
 export default function Grid(props) {
     
     const [lexiconChoice,setLexiconChoice] = useState([[]])
-
+    const [speed,setSpeed] = useState(200)
     const screenWidth=window.innerWidth;
     let colno,rowno;
     let grid_size='1vw'
@@ -18,7 +19,7 @@ export default function Grid(props) {
     else{
         colno=100
         rowno=Math.floor((window.innerHeight/(window.innerWidth/colno))*80/100)
-        grid_size='1vw'
+        grid_size='0.99vw'
     }
     
     const [grid,setGrid] = useState(()=>{
@@ -112,12 +113,12 @@ export default function Grid(props) {
             }
             return new_grid;
         });
-        setTimeout(runGame,300);
-    },[colno,rowno]);
+        setTimeout(runGame,speed);
+    },[colno,rowno,speed]);
 
     const generateRandomGrid= ()=>{
         let new_grid=JSON.parse(JSON.stringify(grid));
-        const mul=(colno==50)?10:6
+        const mul=(colno===50)?10:6
         for(let i=0;i<colno*mul;i++){
             const x = Math.floor(Math.random() * (rowno-1 - 0) + 0);
             const y = Math.floor(Math.random() * (colno-1 - 0) + 0);
@@ -191,22 +192,31 @@ export default function Grid(props) {
             </div>
         </div>
         <Container>
-            <Row>
-                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
+                <Row>
+                    <Col xs={12} sm={12} lg={6} xl={6} className='d-flex justify-content-center'>
+                        <FunStuffModal lexiconState={[lexiconChoice,setLexiconChoice]}></FunStuffModal>
+                    </Col>
+                <Col xs={12} sm={12} lg={6} xl={6} className='d-flex justify-content-center'>
                         <LexiconModal lexiconState={[lexiconChoice,setLexiconChoice]}></LexiconModal>
                 </Col>
-                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
-                    <button className={`btn btn-${(running)?'danger':'dark'} mx-5 my-3`} onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>
-                        <p className='h4'>{(running)?'Stop':'Start'}</p>
-                    </button>
-                </Col>
-                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
+                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
                 <button className="btn btn-dark mx-5 my-3" onClick={resetGrid}
                 >
                     <p className='h4'>Reset</p>
                 </button>
                 </Col>
-                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
+                
+                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center flex-column align-items-center'>
+                    <h4>Speed:</h4>
+                    <input type='range' min="10" max="5000" step="100" value={speed} onChange={(e)=>{setSpeed(e.target.value);setRunning(false)}}></input>
+                    <input type="number" min="0.001" max="5000" value={speed/1000} onChange={(e)=>setSpeed(e.target.value*1000)}></input>
+                </Col>
+                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
+                    <button className={`btn btn-${(running)?'danger':'dark'} mx-5 my-3`} onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>
+                        <p className='h1'>{(running)?'STOP':'START'}</p>
+                    </button>
+                </Col>
+                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
                     <button className="btn btn-dark my-3 mx-5" onClick={nextIteration}><p className='h4'>Next Iteration</p></button>
                 </Col>
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>

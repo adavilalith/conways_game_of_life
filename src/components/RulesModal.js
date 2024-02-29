@@ -22,7 +22,8 @@ function RulesModal(props) {
               <Row className='my-2 mb-5'>
                 <Col>
                   The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.<br></br><br></br>
-                  It consists of a grid of cells which, based on a few mathematical rules, can live, die or multiply. Depending on the initial conditions, the cells form various patterns throughout the course of the game. 
+                  
+                  Conway's Game of Life is an utterly mesmerizing cellular automaton! Picture a vibrant world where tiny cells on a grid come alive, dance, and even give birth—all governed by simple rules. In this digital universe, cells thrive or perish based on the company they keep, resulting in breathtaking patterns, pulsating rhythms, and even whimsical "spaceships" that roam the grid. It's not just a game; it's a dazzling display of emergent complexity that enchants and captivates across all horizons. Dive in, and watch as simplicity evolves into a kaleidoscope of wonder!
                 </Col>
               </Row>
               <Container className="ps-5 py-3" style={{border:"1px solid black", borderRadius:'5px'}}>
@@ -75,10 +76,10 @@ function RulesModal(props) {
               </Row>
               <Row>
                 <Col className='d-flex justify-content-center my-2'>
-                <iframe src="https://www.youtube.com/embed/Kk2MH9O4pXY?si=9dUitGtXB7rNoyIG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe src="https://www.youtube.com/embed/R9Plq-D1gEk?si=y2-Uu5xQCsshBRS0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 </Col>
                 <Col className='d-flex justify-content-center my-2'>
-                <iframe src="https://www.youtube.com/embed/R9Plq-D1gEk?si=y2-Uu5xQCsshBRS0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Kk2MH9O4pXY?si=9dUitGtXB7rNoyIG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 </Col>
               </Row>
             </Container>

@@ -83,7 +83,7 @@ function LexiconModal(props) {
                             <p>{choice.name}</p>
                         </Col>
                         <Col className='d-flex justify-content-center align-items-center flex-column'>
-                            <img src={`./images/lexiconImages/${choice.name}.gif`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}/>
+                            <img src={`./images/lexiconImages/${choice.name}.gif`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}  style={{maxWidth:'30%'}}/>
                             <Button className='my-2 btn-dark'onClick={()=>selectLexiconChoice(choice.pattern)}>use</Button>
                         </Col>
                         </Row>
@@ -99,7 +99,7 @@ function LexiconModal(props) {
                             <p>{choice.name}</p>
                         </Col>
                         <Col className='d-flex justify-content-center align-items-center flex-column'>
-                            <img src={`./images/lexiconImages/${choice.name}.png`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}/>
+                            <img src={`./images/lexiconImages/${choice.name}.png`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}  style={{maxWidth:'30%'}}/>
                             <Button className='my-2 btn-dark'onClick={()=>selectLexiconChoice(choice.pattern)}>use</Button>
                         </Col>
                         </Row>
