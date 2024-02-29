@@ -1,9 +1,11 @@
-import React,{useCallback, useState, useRef} from 'react'
-import { Container,Row,Col } from 'react-bootstrap';
+import React,{useCallback, useState, useRef, useEffect} from 'react'
+import { Container,Row,Col, Button } from 'react-bootstrap';
+import LexiconModal from './LexiconModal';
 
 export default function Grid(props) {
+    
+    const [lexiconChoice,setLexiconChoice] = useState([0,{start:[0,0],pattern:[]}])
 
-    console.log(window.innerWidth)
     const screenWidth=window.innerWidth;
     let colno,rowno;
     let grid_size='1vw'
@@ -19,8 +21,6 @@ export default function Grid(props) {
         grid_size='1vw'
     }
     
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
     const [grid,setGrid] = useState(()=>{
         const rows=[]
         for(let i=0;i<rowno;i++){
@@ -34,6 +34,43 @@ export default function Grid(props) {
     const runningref = useRef(running);
     runningref.current = running;
 
+    const nextIteration = ()=>{
+        setGrid( g => {
+            const lifecond=(x,y)=>{
+            const life=g[x][y]
+            let alive=0-g[x][y];
+            const idx = [(x - 1 + rowno) % rowno,x,(x + 1) % rowno];
+            const jdx = [(y - 1 + colno ) % colno, y, (y + 1) % colno  ];
+            for(let i=0;i<3;i++){
+                for(let j=0;j<3;j++){
+                    if(g[idx[i]][jdx[j]])alive++
+                }
+            }
+            if(life){
+                if(alive<2)return false
+                if(alive===2||alive===3)return true
+                if(alive>3)return false
+                return true
+            }
+            else{
+                if(alive===3)return true
+                return false
+            }
+        }
+        let new_grid=JSON.parse(JSON.stringify(g));
+        for(let i=0;i<rowno;i++){
+            for(let j=0;j<colno;j++){
+                if(lifecond(i,j)){
+                    new_grid[i][j]=1;
+                }
+                else{
+                    new_grid[i][j]=0;
+                }
+            }
+        }
+        return new_grid;
+    });
+    }
     const runGame = useCallback(()=>{
         if(!runningref.current){
             console.log("error")
@@ -73,7 +110,6 @@ export default function Grid(props) {
                     }
                 }
             }
-            console.log(new_grid)
             return new_grid;
         });
         setTimeout(runGame,200);
@@ -81,7 +117,8 @@ export default function Grid(props) {
 
     const generateRandomGrid= ()=>{
         let new_grid=JSON.parse(JSON.stringify(grid));
-        for(let i=0;i<800;i++){
+        const mul=(colno==50)?10:6
+        for(let i=0;i<colno*mul;i++){
             const x = Math.floor(Math.random() * (rowno-1 - 0) + 0);
             const y = Math.floor(Math.random() * (colno-1 - 0) + 0);
             new_grid[x][y]=1;
@@ -89,6 +126,12 @@ export default function Grid(props) {
         setGrid(new_grid);
     }
 
+    useEffect(()=>{
+        const loadLexiconChoice = ()=>{
+            console.log(lexiconChoice)
+        }
+        loadLexiconChoice();
+    },[lexiconChoice])
     return (
     <>
         <div className='gamegrid' >
@@ -120,10 +163,15 @@ export default function Grid(props) {
         </div>
         <Container>
             <Row>
-                <Col>
-                    <button className="btn btn-dark mx-5 my-3" onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>{(running)?'Stop':'Start'}</button>
+                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
+                        <LexiconModal lexiconState={[lexiconChoice,setLexiconChoice]}></LexiconModal>
                 </Col>
-                <Col>
+                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
+                    <button className={`btn btn-${(running)?'danger':'dark'} mx-5 my-3`} onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>
+                        <p className='h4'>{(running)?'Stop':'Start'}</p>
+                    </button>
+                </Col>
+                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
                 <button className="btn btn-dark mx-5 my-3" onClick={()=>setGrid(()=>{
                                                                     setRunning(false);
                                                                     const rows=[]
@@ -132,10 +180,15 @@ export default function Grid(props) {
                                                                     }
                                                                     return rows;
                                                                 })}
-                >Reset</button>
+                >
+                    <p className='h4'>Reset</p>
+                </button>
                 </Col>
-                <Col>
-                    <button className="btn btn-dark my-3 mx-5" onClick={generateRandomGrid}>generate</button>
+                <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
+                    <button className="btn btn-dark my-3 mx-5" onClick={nextIteration   }><p className='h4'>Next Iteration</p></button>
+                </Col>
+                <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
+                    <button className="btn btn-dark my-3 mx-5" onClick={generateRandomGrid}><p className='h4'>Generate</p></button>
                 </Col>
             </Row>
         </Container>            

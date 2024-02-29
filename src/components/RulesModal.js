@@ -25,6 +25,7 @@ function RulesModal(props) {
                   It consists of a grid of cells which, based on a few mathematical rules, can live, die or multiply. Depending on the initial conditions, the cells form various patterns throughout the course of the game. 
                 </Col>
               </Row>
+              <Container className="ps-5 py-3" style={{border:"1px solid black", borderRadius:'5px'}}>
               <Row>
                 <Col className='col-9 h4'>Rules</Col>
               </Row>
@@ -66,6 +67,7 @@ function RulesModal(props) {
                   <img src="./images/rule4_2.png" alt="" />
               </Col>
               </Row>
+              </Container>
               <Row>
                 <Col>
                   <p className='h4 mt-5 mb-3'>What to learn more?</p>
@@ -73,10 +75,10 @@ function RulesModal(props) {
               </Row>
               <Row>
                 <Col className='d-flex justify-content-center my-2'>
-                <iframe src="https://www.youtube.com/embed/Kk2MH9O4pXY?si=9dUitGtXB7rNoyIG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Kk2MH9O4pXY?si=9dUitGtXB7rNoyIG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 </Col>
                 <Col className='d-flex justify-content-center my-2'>
-                <iframe src="https://www.youtube.com/embed/R9Plq-D1gEk?si=y2-Uu5xQCsshBRS0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/R9Plq-D1gEk?si=y2-Uu5xQCsshBRS0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 </Col>
               </Row>
             </Container>
