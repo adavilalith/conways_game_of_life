@@ -4,7 +4,7 @@ import LexiconModal from './LexiconModal';
 
 export default function Grid(props) {
     
-    const [lexiconChoice,setLexiconChoice] = useState([0,{start:[0,0],pattern:[]}])
+    const [lexiconChoice,setLexiconChoice] = useState([[]])
 
     const screenWidth=window.innerWidth;
     let colno,rowno;
@@ -112,7 +112,7 @@ export default function Grid(props) {
             }
             return new_grid;
         });
-        setTimeout(runGame,200);
+        setTimeout(runGame,300);
     },[colno,rowno]);
 
     const generateRandomGrid= ()=>{
@@ -128,7 +128,25 @@ export default function Grid(props) {
 
     useEffect(()=>{
         const loadLexiconChoice = ()=>{
-            console.log(lexiconChoice)
+            let new_grid=JSON.parse(JSON.stringify(grid));
+            const centerCol=Math.round(colno/2)
+            const startCol=centerCol-Math.round(lexiconChoice[0].length/2)
+            const centerRow=Math.round(rowno/2)
+            const startRow=centerRow-Math.round(lexiconChoice.length/2)
+            console.log(startRow,startCol)
+            for(let r=0;r<lexiconChoice.length;r++){
+                for(let c=0;c<lexiconChoice[0].length;c++){
+                    console.log(startRow,startCol)
+
+                    if(lexiconChoice[r][c]){
+                        new_grid[startRow+r][startCol+c]=1
+                    }
+                    else{
+                        new_grid[startRow+r][startCol+c]=0
+                    }
+                }
+            }
+            setGrid(new_grid)
         }
         loadLexiconChoice();
     },[lexiconChoice])
