@@ -8,16 +8,16 @@ function LexiconModal(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-    const stillLife = [{name:"None",pattern:[[]]},
-                       {name:"None",pattern:[[]]},
-                       {name:"None",pattern:[[]]},
-                       {name:"None",pattern:[[]]},
-                       {name:"None",pattern:[[]]},
-                       {name:"None",pattern:[[]]},
+    const stillLife = [{name:"Block",pattern:[[1,1],[1,1]]},
+                       {name:"Bee-Hive",pattern:[[0,1,1,0],[1,0,0,1],[0,1,1,0]]},
+                       {name:"Loaf",pattern:[[0,1,1,0],[1,0,0,1],[0,1,0,1],[0,0,1,0]]},
+                       {name:"Boat",pattern:[[1,1,0,0],[1,0,1,0],[0,1,0,0]]},
+                       {name:"Tub",pattern:[[0,1,0],[1,0,1],[0,1,0]]},
+                       {name:"Air-Craft",pattern:[[1,1,0,0],[1,0,0,1],[0,0,1,1]]},
                       ]
     const oscillators = [{name:"Blinker",pattern:[[0,1,0],[0,1,0],[0,1,0]]},
-                         {name:"None",pattern:[[]]},
-                         {name:"None",pattern:[[]]},
+                         {name:"Toad",pattern:[[0,0,1,0],[1,0,0,1],[1,0,0,1],[0,1,0,0]]},
+                         {name:"Beacon",pattern:[[1,1,0,0],[1,0,0,0],[0,0,0,1],[0,0,1,1],]},
                          {name:"None",pattern:[[]]},
                          {name:"None",pattern:[[]]},
                         ]

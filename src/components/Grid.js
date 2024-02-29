@@ -125,7 +125,14 @@ export default function Grid(props) {
         }
         setGrid(new_grid);
     }
-
+    const resetGrid = ()=>setGrid(()=>{
+        setRunning(false);
+        const rows=[]
+        for(let i=0;i<rowno;i++){
+            rows.push(Array.from(Array(colno),()=>0));
+        }
+        return rows;
+    })
     useEffect(()=>{
         const loadLexiconChoice = ()=>{
             let new_grid=JSON.parse(JSON.stringify(grid));
@@ -134,10 +141,14 @@ export default function Grid(props) {
             const centerRow=Math.round(rowno/2)
             const startRow=centerRow-Math.round(lexiconChoice.length/2)
             console.log(startRow,startCol)
+            for(let i=0;i<rowno;i++){
+                for(let j=0;j<colno;j++){
+                    new_grid[i][j]=0;
+                }
+            }
             for(let r=0;r<lexiconChoice.length;r++){
                 for(let c=0;c<lexiconChoice[0].length;c++){
                     console.log(startRow,startCol)
-
                     if(lexiconChoice[r][c]){
                         new_grid[startRow+r][startCol+c]=1
                     }
@@ -190,20 +201,13 @@ export default function Grid(props) {
                     </button>
                 </Col>
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
-                <button className="btn btn-dark mx-5 my-3" onClick={()=>setGrid(()=>{
-                                                                    setRunning(false);
-                                                                    const rows=[]
-                                                                    for(let i=0;i<rowno;i++){
-                                                                        rows.push(Array.from(Array(colno),()=>0));
-                                                                    }
-                                                                    return rows;
-                                                                })}
+                <button className="btn btn-dark mx-5 my-3" onClick={resetGrid}
                 >
                     <p className='h4'>Reset</p>
                 </button>
                 </Col>
                 <Col xs={12} sm={12} lg={3} xl={3} className='d-flex justify-content-center'>
-                    <button className="btn btn-dark my-3 mx-5" onClick={nextIteration   }><p className='h4'>Next Iteration</p></button>
+                    <button className="btn btn-dark my-3 mx-5" onClick={nextIteration}><p className='h4'>Next Iteration</p></button>
                 </Col>
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
                     <button className="btn btn-dark my-3 mx-5" onClick={generateRandomGrid}><p className='h4'>Generate</p></button>
