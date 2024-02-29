@@ -72,10 +72,10 @@ function RulesModal(props) {
                 </Col>
               </Row>
               <Row>
-                <Col className='d-flex justify-content-center'>
+                <Col className='d-flex justify-content-center my-2'>
                 <iframe src="https://www.youtube.com/embed/Kk2MH9O4pXY?si=9dUitGtXB7rNoyIG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </Col>
-                <Col className='d-flex justify-content-center'>
+                <Col className='d-flex justify-content-center my-2'>
                 <iframe src="https://www.youtube.com/embed/R9Plq-D1gEk?si=y2-Uu5xQCsshBRS0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </Col>
               </Row>
