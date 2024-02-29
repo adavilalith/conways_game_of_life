@@ -27,7 +27,6 @@ function RulesModal(props) {
               </Row>
               <Row>
                 <Col className='col-9 h4'>Rules</Col>
-                <Col className='col-3 text-center h4'>Examples</Col>
               </Row>
               <Row>
                 <Col><strong>For cells with life:</strong></Col>
