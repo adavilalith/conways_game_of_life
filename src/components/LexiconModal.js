@@ -18,14 +18,27 @@ function LexiconModal(props) {
     const oscillators = [{name:"Blinker",pattern:[[0,1,0],[0,1,0],[0,1,0]]},
                          {name:"Toad",pattern:[[0,0,1,0],[1,0,0,1],[1,0,0,1],[0,1,0,0]]},
                          {name:"Beacon",pattern:[[1,1,0,0],[1,0,0,0],[0,0,0,1],[0,0,1,1],]},
-                         {name:"None",pattern:[[]]},
-                         {name:"None",pattern:[[]]},
+                         {name:"Pulsar",pattern:[[0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
+                                                 [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
+                                                 [0,0,0,0,1,1,0,0,0,1,1,0,0,0,0],
+                                                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                                 [1,1,1,0,0,1,1,0,1,1,0,0,1,1,1],
+                                                 [0,0,1,0,1,0,1,0,1,0,1,0,1,0,0],
+                                                 [0,0,0,0,1,1,0,0,0,1,1,0,0,0,0],
+                                                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                                 [0,0,0,0,1,1,0,0,0,1,1,0,0,0,0],
+                                                 [0,0,1,0,1,0,1,0,1,0,1,0,1,0,0],
+                                                 [1,1,1,0,0,1,1,0,1,1,0,0,1,1,1],
+                                                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                                 [0,0,0,0,1,1,0,0,0,1,1,0,0,0,0],
+                                                 [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
+                                                 [0,0,0,0,1,0,0,0,0,0,1,0,0,0,0],
+                                                ]},
                         ]
-    const spaceships = [{name:"None",pattern:[[]]},
-                        {name:"None",pattern:[[]]},
-                        {name:"None",pattern:[[]]},
-                        {name:"None",pattern:[[]]},
-                        {name:"None",pattern:[[]]},
+    const spaceships = [{name:"Glider",pattern:[[1,0,0],[1,0,1],[1,1,0]]},
+                        {name:"Light-weight Spaceship",pattern:[[0,1,1,0,0],[1,1,1,1,0],[1,1,0,1,1],[0,0,1,1,0]]},
+                        {name:"Middle-weight Spaceship",pattern:[[0,1,1,1,0,0,],[1,1,1,1,1,0],[1,1,1,0,1,1],[0,0,0,1,1,0]]},
+                        {name:"Heavy-weight Spaceship",pattern:[[0,1,1,1,1,0,0],[1,1,1,1,1,1,0],[1,1,1,1,0,1,1,],[0,0,0,0,1,1,0]]},
                         ] 
     const selectLexiconChoice = (pattern)=>{
         setLexiconChoice(pattern)
@@ -70,7 +83,7 @@ function LexiconModal(props) {
                             <p>{choice.name}</p>
                         </Col>
                         <Col className='d-flex justify-content-center align-items-center flex-column'>
-                            <img src={`./images/lexiconImages/${choice.name}.png`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}/>
+                            <img src={`./images/lexiconImages/${choice.name}.gif`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}/>
                             <Button className='my-2 btn-dark'onClick={()=>selectLexiconChoice(choice.pattern)}>use</Button>
                         </Col>
                         </Row>
