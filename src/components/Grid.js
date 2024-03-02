@@ -5,6 +5,7 @@ import FunStuffModal from './FunModal.js';
 
 export default function Grid(props) {
     
+    const [mouseDown,setMouseDown] = useState(false)
     const [lexiconChoice,setLexiconChoice] = useState([[]])
     const [speed,setSpeed] = useState(200)
     const screenWidth=window.innerWidth;
@@ -184,6 +185,15 @@ export default function Grid(props) {
                         let mut_grid=JSON.parse(JSON.stringify(grid));
                         mut_grid[i][j]=mut_grid[i][j]?0:1;
                         setGrid(mut_grid);
+                    }}
+                        onMouseDown={()=>setMouseDown(true)}
+                        onMouseUp={()=>setMouseDown(false)}
+                        onMouseOver={()=>{
+                            if(!mouseDown){return;}
+                            setRunning(false)
+                            let mut_grid=JSON.parse(JSON.stringify(grid));
+                            mut_grid[i][j]=mut_grid[i][j]?0:1;
+                            setGrid(mut_grid);
                     }}                    
                     >
                     </div> 
