@@ -9,9 +9,9 @@ function RulesModal(props) {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow}>
-        {props.text}
-      </Button>
+      <button className="btn btn-dark  mx-5 my-3" onClick={handleShow}>
+      <p className='h3'>{props.text}</p>
+      </button>
 
       <Modal show={show} onHide={handleClose}  centered size='xl'>
         <Modal.Header closeButton>

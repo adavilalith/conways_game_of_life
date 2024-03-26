@@ -2,7 +2,7 @@ import React,{useCallback, useState, useRef, useEffect} from 'react'
 import { Container,Row,Col, Button } from 'react-bootstrap';
 import LexiconModal from './LexiconModal';
 import FunStuffModal from './FunModal.js';
-
+import RulesModal from './RulesModal.js'
 export default function Grid(props) {
     
     const [mouseDown,setMouseDown] = useState(false)
@@ -203,10 +203,15 @@ export default function Grid(props) {
         </div>
         <Container>
                 <Row>
-                    <Col xs={12} sm={12} lg={6} xl={6} className='d-flex justify-content-center'>
+                    <Col xs={12} sm={12} lg={4} xl={4} className='d-flex justify-content-center'>
                         <FunStuffModal lexiconState={[lexiconChoice,setLexiconChoice]}></FunStuffModal>
                     </Col>
-                <Col xs={12} sm={12} lg={6} xl={6} className='d-flex justify-content-center'>
+                    <Col xs={12} sm={12} lg={4} xl={4} className='d-flex justify-content-center algin-items-center'>
+                    
+                        <RulesModal text="Rules"></RulesModal>
+                    
+                    </Col>
+                <Col xs={12} sm={12} lg={4} xl={4} className='d-flex justify-content-center'>
                         <LexiconModal lexiconState={[lexiconChoice,setLexiconChoice]}></LexiconModal>
                 </Col>
                 
