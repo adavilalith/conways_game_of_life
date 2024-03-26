@@ -235,7 +235,7 @@ export default function Grid(props) {
                     <button className="btn btn-dark my-3 mx-5" onClick={nextIteration}><p className='h4'>Next Iteration</p></button>
                 </Col>
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
-                    <button className="btn btn-dark my-3 mx-5" onClick={generateRandomGrid}><p className='h4'>Generate</p></button>
+                    <button className="btn btn-dark my-3 mx-5" onClick={generateRandomGrid}><p className='h4'>Random</p></button>
                 </Col>
             </Row>
         </Container>            
