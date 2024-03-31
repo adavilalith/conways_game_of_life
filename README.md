@@ -15,6 +15,7 @@ This simple implementation of Conway's Game of Life using React and its various 
 - [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Future updates](#future-updates)
 
 ## About the Project
 
@@ -31,6 +32,8 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Conw
 - Clear the grid with the "Reset" button.
 - Click on Rules to learn the rules of the game
 - Experiment with different initial patterns to observe their evolution!
+
+👀 If you find any intresting patterns send me a screenshot and i will add it to 'fun stuff' 👀
 
 ## Screenshots
 
@@ -72,4 +75,8 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Conw
    
 2. Open your browser and visit http://localhost:3000 to view the application.
 
+## Future Updates
 
+- add an export and import pattern feature.
+- add a save pattern feature, experiment with cookies
+- convert grind from using divs to a html canvas based grid
