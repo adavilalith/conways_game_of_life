@@ -1,19 +1,21 @@
 # Conway's Game of Life in React
 
-A simple implementation of Conway's Game of Life using React.
+The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
 
-[Play the my implentation of the game here](https://conways-game-of-life-five-gamma.vercel.app/)
+This simple implementation of Conway's Game of Life using React and its various features.
 
-![Game of Life Demo](demo.gif)
+
+👉[Play the game Here!!](https://conways-game-of-life-five-gamma.vercel.app/)👈
+
 
 ## Table of Contents
 
 - [About the Project](#about-the-project)
 - [How to Play](#how-to-play)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
+- [Future updates](#future-updates)
 
 ## About the Project
 
@@ -22,11 +24,29 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Conw
 ## How to Play
 
 - Click on the grid cells to toggle their state between alive and dead.
+- Draw a pattern of your choice, select one from lexicon or funstuff or click on random
 - Use the "Start" button to initiate the evolution of the cells.
 - Press "Stop" to pause the evolution at any time.
+- Speed can adjusted using the slider or manually entered.
 - You can manually progress to the next generation using the "Next" button.
-- Clear the grid with the "Clear" button.
-- Experiment with different initial patterns to observe their evolution.
+- Clear the grid with the "Reset" button.
+- Click on Rules to learn the rules of the game
+- Experiment with different initial patterns to observe their evolution!
+
+👀 If you find any intresting patterns send me a screenshot and i will add it to 'fun stuff' 👀
+
+## Screenshots
+
+<img src="https://drive.google.com/uc?id=14XccEBowAVObbxh4z8QkfZgmugLWQZkO" style="width: 100%; height: auto"/>
+<p style="text-align: center">rules and additional information</p>
+
+
+<img src="https://drive.google.com/uc?id=10QJub65h7lmNLCFE9zsMan475kDXMlfv" style="width: 100%; height: auto"/>
+<p style="text-align: center">initial random start of grid</p>
+
+
+<img src="https://drive.google.com/uc?id=1gGWZUOHLwIWFg87yKyg-WE75AAXY0vpk" style="width: 100%; height: auto"/>
+<p style="text-align: center">grid after 100+ iterations of the game</p>
 
 ## Installation
 
@@ -52,22 +72,11 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Conw
    ```sh
    npm start
    ```
-  
-   ```sh
-   yarn run
-   ```
+   
 2. Open your browser and visit http://localhost:3000 to view the application.
 
-## Features
-- Interactive grid for toggling cell states.
-- Start, stop, and manually progress through generations.
-- Clear the grid to start with a clean slate.
+## Future Updates
 
-## Contributing
-If you'd like to contribute to the project, please follow these steps:
-
-1. Fork the project.
-2. Create your feature branch (git checkout -b feature/YourFeature).
-3. Commit your changes (git commit -m 'Add some feature').
-4. Push to the branch (git push origin feature/YourFeature).
-5. Open a pull request.
+- add an export and import pattern feature.
+- add a save pattern feature, experiment with cookies
+- convert grind from using divs to a html canvas based grid
