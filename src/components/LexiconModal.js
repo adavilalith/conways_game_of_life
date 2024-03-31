@@ -58,15 +58,20 @@ function LexiconModal(props) {
         <Modal.Body>
             <Container>
                 <Row>
-                    <Col className="d-flex justify-content-start ms-5"><p className='h3'>Still Life:</p></Col>
+                    <Col><p className='h3'>Still Life:</p></Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <p>Still lifes are configurations of cells that remain unchanged from one generation to the next. They do not evolve or move. Examples of still lifes include blocks, beehives, loaves, boats, and tubs.</p>
+                    </Col>
                 </Row>
                 {stillLife.map((choice)=>{
                     return (
                         <Row className='my-4'>
-                        <Col className='d-flex justify-content-center'>
+                        <Col className='d-flex justify-content-end'>
                             <p>{choice.name}</p>
                         </Col>
-                        <Col className='d-flex justify-content-center align-items-center flex-column'>
+                        <Col className='d-flex justify-content-center align-items-start flex-column'>
                             <img src={`./images/lexiconImages/${choice.name}.png`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}/>
                             <Button className='my-2 btn-dark'onClick={()=>selectLexiconChoice(choice.pattern)}>use</Button>
                         </Col>
@@ -74,15 +79,21 @@ function LexiconModal(props) {
                     )
                 })}
                 <Row>
-                    <Col className="d-flex justify-content-start ms-5"><p className='h3'>Oscillators:</p></Col>
+                    <Col><p className='h3'>Oscillators:</p></Col>
+                </Row>
+                <Row>
+                    <p>
+                    Oscillators are patterns that repeat periodically after a certain number of generations. They oscillate between two or more configurations. Examples of oscillators include blinkers, toads, beacons, pulsars, and pentadecathlons.
+                    </p>
                 </Row>
                 {oscillators.map((choice)=>{
                     return (
                         <Row className='my-4'>
-                        <Col className='d-flex justify-content-center'>
+                        <Col className='d-flex justify-content-end'>
                             <p>{choice.name}</p>
                         </Col>
-                        <Col className='d-flex justify-content-center align-items-center flex-column'>
+                        
+                        <Col className='d-flex justify-content-center align-items-start flex-column'>
                             <img src={`./images/lexiconImages/${choice.name}.gif`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}  style={{maxWidth:'30%'}}/>
                             <Button className='my-2 btn-dark'onClick={()=>selectLexiconChoice(choice.pattern)}>use</Button>
                         </Col>
@@ -90,15 +101,20 @@ function LexiconModal(props) {
                     )
                 })}
                 <Row>
-                    <Col className="d-flex justify-content-start ms-5"><p className='h3'>Spaceships:</p></Col>
+                    <Col><p className='h3'>Spaceships:</p></Col>
+                </Row>
+                <Row>
+                    <p>
+                    Spaceships are patterns that move across the grid as the game progresses. They maintain their shape but shift position over time. Examples of spaceships include gliders, lightweight spaceships (LWSS), middleweight spaceships (MWSS), and heavyweight spaceships (HWSS).
+                    </p>
                 </Row>
                 {spaceships.map((choice)=>{
                     return (
                         <Row className='my-4'>
-                        <Col className='d-flex justify-content-center '>
+                        <Col className='d-flex justify-content-end'>
                             <p>{choice.name}</p>
                         </Col>
-                        <Col className='d-flex justify-content-center align-items-center flex-column'>
+                        <Col className='d-flex justify-content-center align-items-start  flex-column'>
                             <img src={`./images/lexiconImages/${choice.name}.png`} alt="" onClick={()=>selectLexiconChoice(choice.pattern)}  style={{maxWidth:'30%'}}/>
                             <Button className='my-2 btn-dark'onClick={()=>selectLexiconChoice(choice.pattern)}>use</Button>
                         </Col>
