@@ -164,7 +164,7 @@ export default function Grid(props) {
         loadLexiconChoice();
     },[lexiconChoice])
     return (
-    <>
+    <div id="controls">
         <div className='gamegrid' >
             <div style={{
                 display:'grid',
@@ -201,7 +201,7 @@ export default function Grid(props) {
                     )}
             </div>
         </div>
-        <Container>
+        <Container >
                 <Row>
                     <Col xs={12} sm={12} lg={4} xl={4} className='d-flex justify-content-center'>
                         <FunStuffModal lexiconState={[lexiconChoice,setLexiconChoice]}></FunStuffModal>
@@ -217,8 +217,8 @@ export default function Grid(props) {
                 
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center flex-column align-items-center'>
                     <h4>Speed:</h4>
-                    <input type='range' min="10" max="1000" step="50" value={speed} onChange={(e)=>{setSpeed(e.target.value);setRunning(false)}}></input>
-                    <input type="number" min="0.001" max="5000" value={speed/1000} onChange={(e)=>setSpeed(e.target.value*1000)}></input>
+                    <input type='range' min="1" max="1001" step="50" value={speed} onChange={(e)=>{setSpeed(e.target.value);setRunning(false)}}></input>
+                    <input type="number" min="0.001" max="5000" value={speed} onChange={(e)=>setSpeed(e.target.value*1000)}></input>
                 </Col>
                 <Col xs={12} sm={12} lg={2} xl={2} className='d-flex justify-content-center'>
                     <button className={`btn btn-${(running)?'danger':'dark'} mx-5 my-3`} onClick={()=>{setRunning(!running);if(!running){runningref.current=true;runGame()}}}>
@@ -239,7 +239,7 @@ export default function Grid(props) {
                 </Col>
             </Row>
         </Container>            
-    </> 
+    </div> 
     
     )
 }
